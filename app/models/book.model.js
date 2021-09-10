@@ -1,0 +1,22 @@
+module.exports = mongoose => {
+    var schema = mongoose.Schema(
+        {
+            title: String,
+            pages: Number,
+            author_ID: {
+                type: mongoose.Schema.Types.ObjectID,
+                ref: "author"
+            }, // TODO Add Author Foreign key
+            publishDate: {type: Date, default: Date.UTC}
+        },
+        { timestamps: true }
+    );
+    schema.method("toJSON", function () {
+        const { __v, _id, ...object } = this.toObject();
+        object.id = _id;
+        return object;
+    });
+
+    const Book = mongoose.model("book", schema);
+    return Book;
+};
