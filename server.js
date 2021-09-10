@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/author.routes")(app);
+require("./app/routes/book.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
