@@ -7,7 +7,7 @@ module.exports = mongoose => {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "author"
             }, // TODO Add Author Foreign key
-            publishDate: {type: Date, default: Date.UTC}
+            publishDate: { type: Date, default: Date.UTC }
         },
         { timestamps: true }
     );
