@@ -14,7 +14,9 @@ exports.create = (req, res) => {
     title: req.body.title,
     pages: req.body.pages,
     author: req.body.author,
-    publishDate: req.body.publishDate
+    publishDate: req.body.publishDate,
+    series: req.body.series,
+    coverLink: req.body.coverLink
   });
 
   // Save Book in the database
