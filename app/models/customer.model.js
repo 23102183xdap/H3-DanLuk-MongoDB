@@ -3,16 +3,15 @@ module.exports = mongoose => {
       {
         firstname: String,
         lastname: String,
-        birthdate: Date(),
+        birthdate: Date,
         
-        // TODO loaned default null
         // TODO loaned null after 30 days passed
         currentlyLoaned: {
             book: {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "book"
             },
-            loanDate: Date()
+            loanDate: { type: Date, default: null }
         }
       },
       { timestamps: true }
