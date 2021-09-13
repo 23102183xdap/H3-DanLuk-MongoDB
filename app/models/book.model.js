@@ -3,7 +3,7 @@ module.exports = mongoose => {
         {
             title: String,
             pages: Number,
-            author_ID: {
+            author: {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "author"
             }, // TODO Add Author Foreign key

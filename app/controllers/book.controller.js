@@ -13,8 +13,7 @@ exports.create = (req, res) => {
   const book = new Book({
     title: req.body.title,
     pages: req.body.pages,
-    author_ID: req.body.author_ID,
-    // TODO req author
+    author: req.body.author,
     publishDate: req.body.publishDate
   });
 
@@ -38,6 +37,7 @@ exports.findAll = (req, res) => {
   var condition = id ? { id: { $regex: new RegExp(id), $options: "i" } } : {};
 
   Book.find(condition)
+    .populate("author")
     .then(data => {
       res.send(data);
     })
