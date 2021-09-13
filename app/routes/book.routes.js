@@ -10,9 +10,9 @@ module.exports = app => {
     router.get("/", book.findAll);
 
     // Retrieve a single Author with id
-    router.get("/author/id/:id", book.findOneById);
+    router.get("/book/id/:id", book.findOneById);
 
-    router.get("/author/title/:title", book.findByTitle);
+    router.get("/book/title/:title", book.findByTitle);
 
     // Update a Author with id
     router.put("/update/:id", book.update);
