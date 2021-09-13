@@ -8,7 +8,7 @@ module.exports = mongoose => {
                 ref: "author"
             }, // TODO Add Author Foreign key
             publishDate: { type: Date, default: Date.UTC },
-            series: { type: Number, default: null },
+            series: { type: Number, default: null, required: false },
             coverLink: String
         },
         { timestamps: true }
