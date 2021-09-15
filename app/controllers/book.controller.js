@@ -4,7 +4,7 @@ const Book = db.book;
 // Create and Save a new Book
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
   var condition = id ? { id: { $regex: new RegExp(id), $options: "i" } } : {};
 
   Book.find(condition)
-    .populate("author")
+    .populate("author", "-__v")
     .then(data => {
       res.send(data);
     })
