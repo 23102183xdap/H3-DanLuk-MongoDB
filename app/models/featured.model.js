@@ -1,7 +1,7 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
-            
+
         },
         { timestamps: true }
     );
@@ -10,7 +10,7 @@ module.exports = mongoose => {
         object.id = _id;
         return object;
     });
-    const Publisher = mongoose.model("publisher", schema);
-    return Publisher;
+    const Featured = mongoose.model("featured", schema);
+    return Featured;
 };
 
