@@ -4,7 +4,7 @@ const Book = db.book;
 // Create and Save a new Book
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
