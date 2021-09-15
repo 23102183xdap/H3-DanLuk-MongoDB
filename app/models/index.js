@@ -8,5 +8,7 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.author = require("./author.model.js")(mongoose);
 db.book = require("./book.model.js")(mongoose);
+db.category = require("./category.model")(mongoose);
+db.customer = require("./customer.model")(mongoose);
 
 module.exports = db;
