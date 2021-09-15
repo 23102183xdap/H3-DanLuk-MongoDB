@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
   var condition = id ? { id: { $regex: new RegExp(id), $options: "i" } } : {};
 
   Book.find(condition)
-    .populate("author")
+    .populate("author", "-__v")
     .then(data => {
       res.send(data);
     })
