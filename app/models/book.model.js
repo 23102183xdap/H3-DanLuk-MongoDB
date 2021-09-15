@@ -1,10 +1,11 @@
+const mongoose = require("mongoose")
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
             title: String,
             pages: Number,
             author: {
-                type: mongoose.Schema.Types.ObjectID,
+                type: Schema.Types.ObjectID,
                 ref: "author"
             }, // TODO Add Author Foreign key
             publishDate: { type: Date, default: Date.UTC },
