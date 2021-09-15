@@ -3,10 +3,11 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
             title: String,
-            pages: Number,
+            pages: { type: Number, min: [1, 'Atleast one page'], required: true, },
             author: {
                 type: mongoose.Schema.Types.ObjectID,
-                ref: "author"
+                ref: "author",
+                required: [true, 'Remember author!']
             }, // TODO Add Author Foreign key
             publishDate: { type: Date, default: Date.UTC },
             series: { type: Number, default: null, required: false },
