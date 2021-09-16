@@ -8,12 +8,19 @@ module.exports = mongoose => {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "author",
                 required: [true, 'Remember author!']
-            }, // TODO Add Author Foreign key
+            },
+            category: {
+                type: mongoose.Schema.Types.ObjectID,
+                ref: "category",
+                required: [true, 'Remember category!']
+            },
             publishDate: { type: Date, default: Date.UTC },
             series: { type: Number, default: null, required: false },
-            coverLink: String
+            coverLink: String,
+            popularity: { type: Number, default: 0 }
         },
         { timestamps: true }
+
     );
     schema.method("toJSON", function () {
         const { __v, _id, ...object } = this.toObject();
