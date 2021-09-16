@@ -11,6 +11,5 @@ db.book = require("./book.model.js")(mongoose);
 db.category = require("./category.model")(mongoose);
 db.customer = require("./customer.model")(mongoose);
 db.publisher = require("./publisher.model")(mongoose);
-db.featured = require("./featured.model")(mongoose);
 
 module.exports = db;
