@@ -4,6 +4,8 @@ module.exports = mongoose => {
             firstname: String,
             lastname: String,
             birthdate: Date,
+            email: String,
+            password: String,
             // TODO loaned null after 30 days passed
             currentlyLoaned: [
                 {
