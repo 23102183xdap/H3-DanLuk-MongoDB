@@ -4,21 +4,16 @@ module.exports = mongoose => {
         {
             title: String,
             pages: { type: Number, min: [1, 'Atleast one page'], required: true, },
-            author: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "author",
-                required: [true, 'Remember author!']
-            },
-            category: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "category",
-                required: [true, 'Remember category!']
-            },
-            collection: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "collection",
-                required: [true, 'Remember collection!']
-            },
+            // category: {
+            //     type: mongoose.Schema.Types.ObjectID,
+            //     ref: "category",
+            //     required: [true, 'Remember category!']
+            // },
+            // collection: {
+            //     type: mongoose.Schema.Types.ObjectID,
+            //     ref: "collection",
+            //     required: [true, 'Remember collection!']
+            // },
             author: [
                 {
                     type: mongoose.Schema.Types.ObjectID,
@@ -26,11 +21,6 @@ module.exports = mongoose => {
                     required: [true, 'Remember author!']
                 },
             ],
-            // category: {
-            //     type: mongoose.Schema.Types.ObjectID,
-            //     ref: "category",
-            //     required: [true, 'Remember category!']
-            // },
             publishDate: { type: Date, default: Date.UTC },
             series: { type: Number, default: null, required: false },
             coverLink: String,
