@@ -11,11 +11,11 @@ module.exports = mongoose => {
                     required: [true, 'Remember author!']
                 },
             ],
-            category: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "category",
-                required: [true, 'Remember category!']
-            },
+            // category: {
+            //     type: mongoose.Schema.Types.ObjectID,
+            //     ref: "category",
+            //     required: [true, 'Remember category!']
+            // },
             publishDate: { type: Date, default: Date.UTC },
             series: { type: Number, default: null, required: false },
             coverLink: String,
