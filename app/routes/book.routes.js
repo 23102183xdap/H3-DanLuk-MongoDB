@@ -3,24 +3,24 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    // Create a new Author
+    // Create a new Book
     router.post("/create", book.create);
 
-    // Retrieve all Authors
+    // Retrieve all Book
     router.get("/", book.findAll);
 
-    // Retrieve a single Author with id
+    // Retrieve a single Book with id
     router.get("/book/id/:id", book.findOneById);
 
     router.get("/book/title/:title", book.findByTitle);
 
-    // Update a Author with id
+    // Update a Book with id
     router.put("/update/:id", book.update);
 
-    // Delete a Author with id
+    // Delete a Book with id
     router.delete("/delete/:id", book.delete);
 
-    // Create a new Author
+    // Create a new Book
     router.delete("/", book.deleteAll);
 
     app.use("/api/books", router);
