@@ -4,11 +4,13 @@ module.exports = mongoose => {
         {
             title: String,
             pages: { type: Number, min: [1, 'Atleast one page'], required: true, },
-            author: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "author",
-                required: [true, 'Remember author!']
-            },
+            author: [
+                {
+                    type: mongoose.Schema.Types.ObjectID,
+                    ref: "author",
+                    required: [true, 'Remember author!']
+                },
+            ],
             category: {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "category",
