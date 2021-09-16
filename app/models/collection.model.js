@@ -1,9 +1,9 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
-            bestSeller: {type: Boolean, default: null },
-            newReleases: {type: Boolean, default: null },
-            popularAuthors: {type: Boolean, default: null },
+            bestSeller: {type: Boolean, default: false },
+            newReleases: {type: Boolean, default: false },
+            popularAuthors: {type: Boolean, default: false },
 
             book: {
                 type: mongoose.Schema.Types.ObjectID,
@@ -19,6 +19,6 @@ schema.method("toJSON", function () {
     object.id = _id;
     return object;
 });
-const Category = mongoose.model("category", schema);
-return Category;
+const Collection = mongoose.model("collection", schema);
+return Collection;
 };

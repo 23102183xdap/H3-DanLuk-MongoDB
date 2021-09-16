@@ -14,6 +14,11 @@ module.exports = mongoose => {
                 ref: "category",
                 required: [true, 'Remember category!']
             },
+            collection: {
+                type: mongoose.Schema.Types.ObjectID,
+                ref: "collection",
+                required: [true, 'Remember collection!']
+            },
             publishDate: { type: Date, default: Date.UTC },
             series: { type: Number, default: null, required: false },
             coverLink: String,

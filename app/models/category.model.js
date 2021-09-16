@@ -27,11 +27,14 @@ module.exports = mongoose => {
             selfImprovement: { type: Boolean, default: null },
             art: { type: Boolean, default: null },
 
-            book: {
-                type: mongoose.Schema.Types.ObjectID,
-                ref: "book",
-                required: [true, 'Remember book!']
-            },
+
+            books: [ {
+                book: {
+                    type: mongoose.Schema.Types.ObjectID,
+                    ref: "book",
+                    required: [true, 'Remember book!']
+                },
+            }]
         },
     { timestamps: true }
     );
