@@ -14,7 +14,7 @@ npx nodemon
 
 ### Models
 > Models use Mongoose Schemas for Foreign Key use and setting relationships up between endpoints and schemas. Example below
-```
+```js
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
