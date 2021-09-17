@@ -52,7 +52,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Category with an id
 exports.findOneById = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id; // URL Parameter
     Category.findById(id)
         .then(data => {
             if (!data)
@@ -67,21 +67,23 @@ exports.findOneById = (req, res) => {
         });
 };
 
-exports.findByCategory = (req, res) => {
-    const category = req.params.fiction;
 
-    Category.find({ "title": new RegExp(title) }).then(data => {
-        if (!data)
-            res.status(404).send({ message: "Category not found with title " + title });
-        else res.send(data);
-    })
-        .catch(err => {
-            res
-                .status(500)
-                .send({ message: "Error retrieving Category with title=" + title });
-            console.log(err);
-        })
-}
+// TODO Make use of this at some point.
+// exports.findByCategory = (req, res) => {
+//     const category = req.params.fiction; // URL Parameter
+
+//     Category.find({ "title": new RegExp(category) }).then(data => {
+//         if (!data)
+//             res.status(404).send({ message: "Category not found with title " + title });
+//         else res.send(data);
+//     })
+//         .catch(err => {
+//             res
+//                 .status(500)
+//                 .send({ message: "Error retrieving Category with title=" + title });
+//             console.log(err);
+//         })
+// }
 
 // Update a Category by the id in the request
 exports.update = (req, res) => {
@@ -91,7 +93,7 @@ exports.update = (req, res) => {
         });
     }
 
-    const id = req.params.id;
+    const id = req.params.id; // URL Parameter
 
     Category.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
@@ -105,12 +107,13 @@ exports.update = (req, res) => {
             res.status(500).send({
                 message: "Error updating Category with id=" + id
             });
+            console.log(err);
         });
 };
 
 // Delete a Category with the specified id in the request
 exports.delete = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id; // URL Parameter
 
     Category.findByIdAndRemove(id, { useFindAndModify: false })
         .then(data => {
@@ -128,6 +131,7 @@ exports.delete = (req, res) => {
             res.status(500).send({
                 message: "Could not delete Category with id=" + id
             });
+            console.log(err);
         });
 };
 

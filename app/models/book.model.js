@@ -4,6 +4,7 @@ module.exports = mongoose => {
         {
             title: String,
             pages: { type: Number, min: [1, 'Atleast one page'], required: true, },
+            // FIXME Uncomment when needed, so the use of collection and category is working
             // category: {
             //     type: mongoose.Schema.Types.ObjectID,
             //     ref: "category",

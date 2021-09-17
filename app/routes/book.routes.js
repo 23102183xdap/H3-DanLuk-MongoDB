@@ -23,5 +23,6 @@ module.exports = app => {
     // Create a new Book
     router.delete("/", book.deleteAll);
 
+    // Creates /api/books endpoint
     app.use("/api/books", router);
 };

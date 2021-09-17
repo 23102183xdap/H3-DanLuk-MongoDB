@@ -4,7 +4,6 @@ module.exports = mongoose => {
             bestSeller: {type: Boolean, default: false },
             newReleases: {type: Boolean, default: false },
             popularAuthors: {type: Boolean, default: false },
-
             book: {
                 type: mongoose.Schema.Types.ObjectID,
                 ref: "book",

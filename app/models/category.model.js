@@ -1,8 +1,8 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
+            // TODO Possibly make it look a little better.
             isFiction: { type: Boolean, required: true },
-
             kids: { type: Boolean, default: null, },
             teen: { type: Boolean, default: null },
             youngAdult: { type: Boolean, default: null },
@@ -26,8 +26,6 @@ module.exports = mongoose => {
             science: { type: Boolean, default: null },
             selfImprovement: { type: Boolean, default: null },
             art: { type: Boolean, default: null },
-
-
             books: [ {
                 book: {
                     type: mongoose.Schema.Types.ObjectID,

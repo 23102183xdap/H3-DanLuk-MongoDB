@@ -48,7 +48,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Author with an id
 exports.findOneById = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Author.findById(id)
     .then(data => {
@@ -65,20 +65,19 @@ exports.findOneById = (req, res) => {
 };
 
 exports.findByQuery = (req, res) => {
-  const firstname = req.params.firstname;
-  // TODO Add params for lastname
+  const firstname = req.params.firstname; // URL Parameter
 
-  Author.find({"firstname": new RegExp(firstname)}).then(data => {
-    if(!data)
-      res.status(404).send({ message: "Author not found with that name: " + firstname});
+  Author.find({ "firstname": new RegExp(firstname) }).then(data => {
+    if (!data)
+      res.status(404).send({ message: "Author not found with that name: " + firstname });
     else res.send(data);
   })
-  .catch(err => {
-    res
-      .status(500)
-      .send({ message: "Error retrieving Author with firstname=" + firstname});
-    console.log(err);
-  })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Author with firstname=" + firstname });
+      console.log(err);
+    })
 }
 
 // Update a Author by the id in the request
@@ -89,7 +88,7 @@ exports.update = (req, res) => {
     });
   }
 
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Author.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
@@ -101,14 +100,15 @@ exports.update = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Author with id=" + id
+        message: "Error updating Author with id=" + id,
+        errorCode: err
       });
     });
 };
 
 // Delete a Author with the specified id in the request
 exports.delete = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Author.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
@@ -124,7 +124,8 @@ exports.delete = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Author with id=" + id
+        message: "Could not delete Author with id=" + id,
+        errorCode: err
       });
     });
 };

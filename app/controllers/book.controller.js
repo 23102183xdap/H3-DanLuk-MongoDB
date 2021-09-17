@@ -53,7 +53,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Book with an id
 exports.findOneById = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Book.findById(id)
     .then(data => {
@@ -69,8 +69,9 @@ exports.findOneById = (req, res) => {
     });
 };
 
+// Find book with an title
 exports.findByTitle = (req, res) => {
-  const title = req.params.title;
+  const title = req.params.title; // URL Parameter
 
   Book.find({"title": new RegExp(title)}).then(data => {
     if(!data)
@@ -93,7 +94,7 @@ exports.update = (req, res) => {
     });
   }
 
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Book.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
@@ -112,7 +113,7 @@ exports.update = (req, res) => {
 
 // Delete a Book with the specified id in the request
 exports.delete = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Book.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {

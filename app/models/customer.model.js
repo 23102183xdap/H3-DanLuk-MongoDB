@@ -1,6 +1,7 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
+            // TODO Add login system
             firstname: String,
             lastname: String,
             birthdate: Date,

@@ -49,7 +49,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with an id
 exports.findOneById = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Customer.findById(id)
     .then(data => {
@@ -66,7 +66,7 @@ exports.findOneById = (req, res) => {
 };
 
 exports.findByQuery = (req, res) => {
-  const firstname = req.params.firstname;
+  const firstname = req.params.firstname; // URL Parameter
   // TODO Add params for lastname
 
   Customer.find({"firstname": new RegExp(firstname)}).then(data => {
@@ -104,12 +104,13 @@ exports.update = (req, res) => {
       res.status(500).send({
         message: "Error updating Customer with id=" + id
       });
+      console.log(err);
     });
 };
 
 // Delete a Customer with the specified id in the request
 exports.delete = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id; // URL Parameter
 
   Customer.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
@@ -127,6 +128,7 @@ exports.delete = (req, res) => {
       res.status(500).send({
         message: "Could not delete Customer with id=" + id
       });
+      console.log(err);
     });
 };
 
