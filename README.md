@@ -8,7 +8,6 @@ npm install
 npx nodemon
 ```
 
-
 ### Routes
 > Routes are located in app/routes if information is needed about them.
 
@@ -84,4 +83,4 @@ module.exports = mongoose => {
 ```
 
 ### Controllers
-> Controllers are using Mongoose function to create, read, update and delete entries into our MongoDB.
+> Controllers are using Mongoose functions to create, read, update and delete entries into our MongoDB.
