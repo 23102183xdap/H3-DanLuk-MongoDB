@@ -73,17 +73,17 @@ exports.findOneById = (req, res) => {
 exports.findByTitle = (req, res) => {
   const title = req.params.title; // URL Parameter
 
-  Book.find({"title": new RegExp(title)}).then(data => {
-    if(!data)
-      res.status(404).send({ message: "Book not fond with title " + title});
-      else res.send(data);
+  Book.find({ "title": new RegExp(title) }).then(data => {
+    if (!data)
+      res.status(404).send({ message: "Book not fond with title " + title });
+    else res.send(data);
   })
-  .catch(err => {
-    res
-      .status(500)
-      .send({ message: "Error retrieving Book with title=" + title});
-    console.log(err);
-  })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Book with title=" + title });
+      console.log(err);
+    })
 }
 
 // Update a Book by the id in the request
