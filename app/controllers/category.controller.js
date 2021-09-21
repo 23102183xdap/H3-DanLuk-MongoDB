@@ -11,12 +11,7 @@ exports.create = (req, res) => {
 
     // Create a Category
     const Category = new Category({
-        title: req.body.title,
-        pages: req.body.pages,
-        author: req.body.author,
-        publishDate: req.body.publishDate,
-        series: req.body.series,
-        coverLink: req.body.coverLink
+        name: req.body.name
     });
 
     // Save Category in the database
@@ -69,21 +64,21 @@ exports.findOneById = (req, res) => {
 
 
 // TODO Make use of this at some point.
-// exports.findByCategory = (req, res) => {
-//     const category = req.params.fiction; // URL Parameter
+exports.findByCategory = (req, res) => {
+    const category = req.params.name; // URL Parameter
 
-//     Category.find({ "title": new RegExp(category) }).then(data => {
-//         if (!data)
-//             res.status(404).send({ message: "Category not found with title " + title });
-//         else res.send(data);
-//     })
-//         .catch(err => {
-//             res
-//                 .status(500)
-//                 .send({ message: "Error retrieving Category with title=" + title });
-//             console.log(err);
-//         })
-// }
+    Category.find({ "name": new RegExp(category) }).then(data => {
+        if (!data)
+            res.status(404).send({ message: "Category not found with name " + category });
+        else res.send(data);
+    })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving Category with name=" + category });
+            console.log(err);
+        })
+}
 
 // Update a Category by the id in the request
 exports.update = (req, res) => {
@@ -135,18 +130,18 @@ exports.delete = (req, res) => {
         });
 };
 
-// Delete all Categorys from the database.
+// Delete all Categories from the database.
 exports.deleteAll = (req, res) => {
     Category.deleteMany({})
         .then(data => {
             res.send({
-                message: `${data.deletedCount} Categorys were deleted successfully!`
+                message: `${data.deletedCount} Categories were deleted successfully!`
             });
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while removing all Categorys."
+                    err.message || "Some error occurred while removing all Categories."
             });
         });
 };
