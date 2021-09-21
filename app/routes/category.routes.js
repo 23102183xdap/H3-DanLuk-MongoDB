@@ -15,13 +15,13 @@ module.exports = app => {
     router.get("/name/:category", category.findByCategory);
 
     // Update a Book with id
-    router.put("/update/:id", book.update);
+    router.put("/update/:id", category.update);
 
     // Delete a Book with id
-    router.delete("/delete/:id", book.delete);
+    router.delete("/delete/:id", category.delete);
 
     // Create a new Book
-    router.delete("/", book.deleteAll);
+    router.delete("/", category.deleteAll);
 
     // Creates /api/books endpoint
     app.use("/api/category", router);
