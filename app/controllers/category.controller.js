@@ -62,8 +62,7 @@ exports.findOneById = (req, res) => {
         });
 };
 
-
-// TODO Make use of this at some point.
+// Find a category with the name of it
 exports.findByCategory = (req, res) => {
     const category = req.params.name; // URL Parameter
 
