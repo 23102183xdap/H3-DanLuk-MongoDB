@@ -1,5 +1,5 @@
 const db = require("../models");
-const category = db.category;
+const Category = db.category;
 
 // Create and Save a new Category
 exports.create = (req, res) => {
