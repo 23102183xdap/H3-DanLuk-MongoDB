@@ -4,7 +4,7 @@ const Customer = db.customer;
 // Create and Save a new Customer
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.firstname) {
+  if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   const customer = new Customer({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    birthdate: Date(),
+    birthdate: req.body.brithdate,
   });
 
   // Save Customer in the database

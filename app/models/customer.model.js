@@ -2,11 +2,10 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
             // TODO Add login system
+            _id: String,
             firstname: String,
             lastname: String,
             birthdate: Date,
-            email: String,
-            password: String,
             // TODO loaned null after 30 days passed
             currentlyLoaned: [
                 {
