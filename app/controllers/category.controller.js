@@ -10,13 +10,13 @@ exports.create = (req, res) => {
     }
 
     // Create a Category
-    const Category = new Category({
+    const category = new Category({
         name: req.body.name
     });
 
     // Save Category in the database
     Category
-        .save(Category)
+        .save(category)
         .then(data => {
             res.send(data);
         })
