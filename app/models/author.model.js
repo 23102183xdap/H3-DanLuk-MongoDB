@@ -4,7 +4,13 @@ module.exports = mongoose => {
       firstname: { type: String, required: true },
       lastname: { type: String, required: true },
       about: { type: String, default: null },
-      popularity: { type: Number, default: 0 }
+      //popularity: { type: Number, default: 0 }, // TODO Make it work at some point
+      books: [{
+        book: {
+          type: mongoose.Schema.Types.ObjectID,
+          ref: "book"
+        }
+      }]
     },
     { timestamps: true }
   );

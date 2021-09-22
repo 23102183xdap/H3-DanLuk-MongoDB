@@ -12,7 +12,9 @@ exports.create = (req, res) => {
   // Create a Author
   const author = new Author({
     firstname: req.body.firstname,
-    lastname: req.body.lastname
+    lastname: req.body.lastname,
+    about: req.body.about,
+    books: req.body.books
   });
 
   // Save Author in the database

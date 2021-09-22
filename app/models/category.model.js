@@ -2,7 +2,6 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
             name: { type: String, required: true },
-            // TODO Possibly make it look a little better.
             books: [ {
                 book: {
                     type: mongoose.Schema.Types.ObjectID,
