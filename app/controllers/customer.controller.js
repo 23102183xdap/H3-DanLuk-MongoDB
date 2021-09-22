@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     birthdate: req.body.brithdate,
+    currentlyLoaned: req.body.currentlyLoaned
   });
 
   // Save Customer in the database
