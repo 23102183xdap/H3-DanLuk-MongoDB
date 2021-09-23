@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 // Variables
 const db = {};
-db.mongoose = mongoose; // Mongoose ref
+db.mongoose = mongoose; // Mongoose reference
 db.url = dbConfig.url; // Connection string
 db.author = require("./author.model.js")(mongoose); // Author model
 db.book = require("./book.model.js")(mongoose); // Book model

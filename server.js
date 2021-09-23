@@ -6,7 +6,7 @@ const app = express();
 
 // CORS for XSS protection
 var corsOptions = {
-  origin: ["http://localhost:8081", "http://localhost:4200"]
+  origin: ["http://localhost:4200"]
 };
 app.use(cors(corsOptions));
 
