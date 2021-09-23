@@ -11,10 +11,10 @@ exports.create = (req, res) => {
 
   // Create a Customer
   const customer = new Customer({
+    _id: req.body.id,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    birthdate: req.body.brithdate,
-    currentlyLoaned: req.body.currentlyLoaned
+    birthdate: req.body.brithdate
   });
 
   // Save Customer in the database
